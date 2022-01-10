@@ -11,7 +11,7 @@ namespace CsvFileConverter.Helpers
     {
         public FileReader()
         {
-                   
+
         }
 
         public async Task<List<Commodity>> GetCommodityList(string filepath)
@@ -21,15 +21,13 @@ namespace CsvFileConverter.Helpers
             if (filepath == null)
                 return list;
 
-            using (var sr = new StreamReader(filepath))
+            using var sr = new StreamReader(filepath);
+            while (true)
             {
-                while (true)
-                {
-                    var line = await sr.ReadLineAsync();
-                    if (line == null)
-                        break;
-                    list.Add(Commodity.FromCsv(line));
-                }
+                var line = await sr.ReadLineAsync();
+                if (line == null)
+                    break;
+                list.Add(Commodity.FromCsv(line));
             }
             return list;
         }

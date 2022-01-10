@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<ArrayOfCommodity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Commodity>
+    <Nazwa>NAR_BIEG_230</Nazwa>
+    <Cena>35</Cena>
+    <Opis>
+      <A>Salomon</A>
+      <B>Narty biegowe z wiązaniami 230 cm12</B>
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>NAR_W0_160</Nazwa>
+    <Cena>300</Cena>
+    <Opis>
+      <A>Olimpia</A>
+      <B>Narty wodne 160 cm1</B>
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>NAR_Z0_150</Nazwa>
+    <Cena>300</Cena>
+    <Opis>
+      <A>Salomon</A>
+      <B>Narty zjazdowe 150 cm</B>
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>NAR_Z1_180</Nazwa>
+    <Cena>480</Cena>
+    <Opis>
+      <A>Salomon</A>
+      <B>Narty zjazdowe z wiązaniami 180 cm</B>
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>00034</Nazwa>
+    <Cena>0</Cena>
+    <Opis>
+      <A />
+      <B>nfsfngfs</B>
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>PIL_TEN_H</Nazwa>
+    <Cena>0.0</Cena>
+    <Opis>
+      <A>Olimpia</A>
+      <B>Piłeczka do tenisa stołowego - hard</B>
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>PIL_TEN_S</Nazwa>
+    <Cena>0.0</Cena>
+    <Opis>
+      <A>Olimpia</A>
+      <B>Piłeczka do tenisa stołowego - soft</B>
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>00003</Nazwa>
+    <Cena>0</Cena>
+    <Opis>
+      <A>r</A>
+      <B />
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>ROW_G_SCOUT_18</Nazwa>
+    <Cena>600</Cena>
+    <Opis>
+      <A>Scout</A>
+      <B>Rower górski Scout 18"</B>
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>ROW_G_SCOUT_20</Nazwa>
+    <Cena>620</Cena>
+    <Opis>
+      <A>Scout</A>
+      <B>Rower górski Scout 20"</B>
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>ROW_G_SCOUT_22</Nazwa>
+    <Cena>630</Cena>
+    <Opis>
+      <A>Scout</A>
+      <B>Rower górski Scout 22"</B>
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>ROW_TD_SCOUT_24</Nazwa>
+    <Cena>420</Cena>
+    <Opis>
+      <A>Scout</A>
+      <B>Rower turystyczny damski Scout 24"</B>
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>ROW_TM_SCOUT_24</Nazwa>
+    <Cena>480</Cena>
+    <Opis>
+      <A>Scouts</A>
+      <B>Rower turystyczny męski Scout 24"</B>
+    </Opis>
+  </Commodity>
+</ArrayOfCommodity>

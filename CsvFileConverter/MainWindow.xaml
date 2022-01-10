@@ -8,15 +8,17 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="539*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30*"/>
             <RowDefinition Height="37*"/>
             <RowDefinition Height="367*"/>
         </Grid.RowDefinitions>
-        <Button Content="Wczytaj plik" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="110" Height="29" Click="Button_Click"/>
+        <Button Content="Wczytaj plik" x:Name="openFile" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Width="110" Height="29" Click="Button_Click"/>
+        <Button Content="Posortuj po nazwie" x:Name="sortByName"  HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Width="110" Height="29" Click="sortByName_Click"/>
 
     </Grid>
 </Window>

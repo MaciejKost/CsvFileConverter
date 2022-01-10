@@ -4,13 +4,20 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace CsvFileConverter.Models
 {
+    [XmlRoot("Towar")]
     public class Commodity
     {
+
+        [XmlElement("Nazwa")]
         public string Name { get; set; }
+
+        [XmlElement("Cena")]
         public decimal Price { get; set; }
+        [XmlElement("Opis")]
         public Description Description { get; set; } = new Description();
 
         public static Commodity FromCsv(string csvLine)
