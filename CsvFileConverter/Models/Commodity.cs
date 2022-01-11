@@ -19,17 +19,16 @@ namespace CsvFileConverter.Models
         [XmlElement("Opis")]
         public Description Description { get; set; } = new Description();
 
-        public static Commodity FromCsv(string csvLine)
+        public Commodity FromCsv(string csvLine)
         {
             string[] values = csvLine.Split(';');
             NumberStyles style = NumberStyles.AllowDecimalPoint;
             CultureInfo culture = CultureInfo.CreateSpecificCulture("pl-PL");
-            Commodity commodity = new Commodity();
-            commodity.Name = values[0];
-            commodity.Price = Decimal.TryParse(values[1], style, culture, out decimal price) ? price : 0.0M;
-            commodity.Description.A = values[2];
-            commodity.Description.B = values[3];
-            return commodity;
+            this.Name = values[0];
+            this.Price = Decimal.TryParse(values[1], style, culture, out decimal price) ? price : 0.0M;
+            this.Description.A = values[2];
+            this.Description.B = values[3];
+            return this;
         }
     }
 

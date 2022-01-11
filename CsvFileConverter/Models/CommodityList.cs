@@ -11,7 +11,6 @@ namespace CsvFileConverter.Models
 {
     class CommodityList
     {
-        [XmlArrayItem("Stara")]
         public List<Commodity> CommoditiesList { get; set; }
 
         /// <summary>
@@ -58,7 +57,7 @@ namespace CsvFileConverter.Models
                 var line = await sr.ReadLineAsync();
                 if (line == null)
                     break;
-                list.Add(Commodity.FromCsv(line));
+                list.Add(new Commodity().FromCsv(line));
             }
             return list;
         }

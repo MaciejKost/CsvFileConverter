@@ -25,15 +25,17 @@ namespace CsvFileConverter
     public partial class MainWindow : Window
     {
         private OpenDialog _dialog;
-        private XmlFileSaver<List<Commodity>> _xmlFileSaver;
+        private XmlFileSaver<CommodityXml> _xmlFileSaver;
         private CommodityList _commoditiesList;
+        private CommodityXml _commodityXml;
 
         public MainWindow()
         {
             InitializeComponent();
             _dialog = new OpenDialog();
-            _xmlFileSaver = new XmlFileSaver<List<Commodity>>(FileMode.Create);
+            _xmlFileSaver = new XmlFileSaver<CommodityXml>(FileMode.Create);
             _commoditiesList = new CommodityList();
+            _commodityXml = new CommodityXml();
         }
 
         private async void OpenFile_Click(object sender, RoutedEventArgs e)
@@ -59,12 +61,14 @@ namespace CsvFileConverter
 
         private void SortByName_Click(object sender, RoutedEventArgs e)
         {
-            _xmlFileSaver.SaveToFile(_commoditiesList.GetOrderByName(), true);
+            _commodityXml.CommoditiesList = _commoditiesList.GetOrderByName();
+            _xmlFileSaver.SaveToFile(_commodityXml, true);
         }
 
         private void SortByPrice_Click(object sender, RoutedEventArgs e)
         {
-            _xmlFileSaver.SaveToFile(_commoditiesList.GetOrderByPrice(), true);
+            _commodityXml.CommoditiesList = _commoditiesList.GetOrderByPrice();
+            _xmlFileSaver.SaveToFile(_commodityXml, true);
         }
 
 

@@ -9,7 +9,7 @@ namespace CsvFileConverter.Helpers
     public class XmlFileSaver<T> where T : class
     {
      
-        private XmlSerializer _serializer = new XmlSerializer(typeof(T),);
+        private XmlSerializer _serializer = new XmlSerializer(typeof(T));
         private SaveDialog _saveDialog = new SaveDialog();
   
         public string _filepath { get; set; }
@@ -43,7 +43,5 @@ namespace CsvFileConverter.Helpers
             if (openAfterSave)
             System.Diagnostics.Process.Start("explorer.exe", fs.Name);
         }
-
-
     }
 }
