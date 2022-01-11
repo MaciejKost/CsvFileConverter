@@ -57,7 +57,7 @@ namespace CsvFileConverter.Models
                 var line = await sr.ReadLineAsync();
                 if (line == null)
                     break;
-                list.Add(new Commodity().FromCsv(line));
+                list.Add(new Commodity(line));
             }
             return list;
         }

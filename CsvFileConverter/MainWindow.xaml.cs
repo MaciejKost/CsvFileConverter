@@ -77,6 +77,8 @@ namespace CsvFileConverter
             var searchText = searchTextBox.Text;
             if (searchText.Length > 0)
                 dataGrid.ItemsSource = _commoditiesList.SearchByDesc(searchText);
+            else
+                MessageBox.Show("Wprowadź frazę", "Uwaga", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
 
