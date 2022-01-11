@@ -26,28 +26,47 @@ namespace CsvFileConverter
     {
         private CsvDialog _dialog;
         private FileReader _fileReader;
-        private XmlFile<List<Commodity>> _xmlFile;
-        public List<Commodity> commodityList;
+        private XmlFileSaver<List<Commodity>> _xmlFileSaver;
+        private XmlFile _xmlFile;
+
         public MainWindow()
         {
             InitializeComponent();
             _dialog = new CsvDialog();
-            commodityList = new List<Commodity>();
             _fileReader = new FileReader();
-            _xmlFile = new XmlFile<List<Commodity>>();
-
-
+            _xmlFileSaver = new XmlFileSaver<List<Commodity>>("CommodotyCsv.xml", FileMode.Create);
+            _xmlFile = new XmlFile();
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private async void openFile_Click(object sender, RoutedEventArgs e)
         {
-            _xmlFile.Data = await _fileReader.GetCommodityList(_dialog.GetFilePath());
+            _xmlFile.CommodityList = await _fileReader.GetCommodityList(_dialog.GetFilePath());
+            if (_xmlFile.CommodityList.Count > 0)
+            {
+                sortByNameBtn.IsEnabled = true;
+                sortByPriceBtn.IsEnabled = true;
+                searchByDescBtn.IsEnabled = true;
+            }
         }
 
         private void sortByName_Click(object sender, RoutedEventArgs e)
         {
-            _xmlFile.Data.OrderBy(x => x.Name);
-            _xmlFile.SaveToFile();
+            _xmlFileSaver.SaveToFile(_xmlFile.GetOrderByName(), true);
         }
+
+        private void sortByPrice_Click(object sender, RoutedEventArgs e)
+        {
+            _xmlFileSaver.SaveToFile(_xmlFile.GetOrderByPrice(), true);
+        }
+
+
+        private void searchByDesc_Click(object sender, RoutedEventArgs e)
+        {
+            var searchText = searchTextBox.Text;
+            if (searchText.Length > 0)
+                lvCommodity.ItemsSource = _xmlFile.SearchByDesc(searchText);
+        }
+
+
     }
 }

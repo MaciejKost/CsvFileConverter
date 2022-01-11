@@ -8,10 +8,10 @@ using System.Xml.Serialization;
 
 namespace CsvFileConverter.Models
 {
+    [Serializable]
     [XmlRoot("Towar")]
     public class Commodity
     {
-
         [XmlElement("Nazwa")]
         public string Name { get; set; }
 
@@ -34,6 +34,10 @@ namespace CsvFileConverter.Models
             return commodity;
         }
 
+        public override string ToString()
+        {
+            return $"Nazwa: {Name}, Cena: {Price}, Opis A: {Description.A}, Opis B: {Description.B}";
+        }
     }
 
 

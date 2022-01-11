@@ -7,11 +7,11 @@ namespace CsvFileConverter.Helpers
 {
     public class CsvDialog
     {
-        private Microsoft.Win32.OpenFileDialog _dialog;
+        private OpenFileDialog _dialog;
 
         public CsvDialog()
         {
-            _dialog = new Microsoft.Win32.OpenFileDialog();
+            _dialog = new OpenFileDialog();
             _dialog.FileName = "Document";
             _dialog.DefaultExt = ",csv";
             _dialog.Filter = "Comma saperated values(.csv)|*.csv";

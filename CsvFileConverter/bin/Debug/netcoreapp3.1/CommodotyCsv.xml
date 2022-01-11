@@ -1,6 +1,22 @@
 <?xml version="1.0"?>
 <ArrayOfCommodity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Commodity>
+    <Nazwa>00003</Nazwa>
+    <Cena>0</Cena>
+    <Opis>
+      <A>r</A>
+      <B />
+    </Opis>
+  </Commodity>
+  <Commodity>
+    <Nazwa>00034</Nazwa>
+    <Cena>0</Cena>
+    <Opis>
+      <A />
+      <B>nfsfngfs</B>
+    </Opis>
+  </Commodity>
+  <Commodity>
     <Nazwa>NAR_BIEG_230</Nazwa>
     <Cena>35</Cena>
     <Opis>
@@ -33,14 +49,6 @@
     </Opis>
   </Commodity>
   <Commodity>
-    <Nazwa>00034</Nazwa>
-    <Cena>0</Cena>
-    <Opis>
-      <A />
-      <B>nfsfngfs</B>
-    </Opis>
-  </Commodity>
-  <Commodity>
     <Nazwa>PIL_TEN_H</Nazwa>
     <Cena>0.0</Cena>
     <Opis>
@@ -54,14 +62,6 @@
     <Opis>
       <A>Olimpia</A>
       <B>Piłeczka do tenisa stołowego - soft</B>
-    </Opis>
-  </Commodity>
-  <Commodity>
-    <Nazwa>00003</Nazwa>
-    <Cena>0</Cena>
-    <Opis>
-      <A>r</A>
-      <B />
     </Opis>
   </Commodity>
   <Commodity>
