@@ -24,39 +24,47 @@ namespace CsvFileConverter
     /// </summary>
     public partial class MainWindow : Window
     {
-        private CsvDialog _dialog;
-        private FileReader _fileReader;
+        private OpenDialog _dialog;
         private XmlFileSaver<List<Commodity>> _xmlFileSaver;
-        private XmlFile _xmlFile;
+        private CommodityList _commoditiesList;
 
         public MainWindow()
         {
             InitializeComponent();
-            _dialog = new CsvDialog();
-            _fileReader = new FileReader();
-            _xmlFileSaver = new XmlFileSaver<List<Commodity>>("CommodotyCsv.xml", FileMode.Create);
-            _xmlFile = new XmlFile();
+            _dialog = new OpenDialog();
+            _xmlFileSaver = new XmlFileSaver<List<Commodity>>(FileMode.Create);
+            _commoditiesList = new CommodityList();
         }
 
-        private async void openFile_Click(object sender, RoutedEventArgs e)
+        private async void OpenFile_Click(object sender, RoutedEventArgs e)
         {
-            _xmlFile.CommodityList = await _fileReader.GetCommodityList(_dialog.GetFilePath());
-            if (_xmlFile.CommodityList.Count > 0)
+            try
             {
-                sortByNameBtn.IsEnabled = true;
-                sortByPriceBtn.IsEnabled = true;
-                searchByDescBtn.IsEnabled = true;
+                var filePath = _dialog.GetFilePath();
+                fileNameLabel.Content = $"Ścieżka pliku: {filePath}";
+                _commoditiesList.CommoditiesList = await _commoditiesList.GetCommodityList(filePath);
+                if (_commoditiesList.CommoditiesList.Count > 0)
+                {
+                    sortByNameBtn.IsEnabled = true;
+                    sortByPriceBtn.IsEnabled = true;
+                    searchByDescBtn.IsEnabled = true;
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Błąd podczas wczytywania: {ex.Message}", "Bład", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
-        private void sortByName_Click(object sender, RoutedEventArgs e)
+        private void SortByName_Click(object sender, RoutedEventArgs e)
         {
-            _xmlFileSaver.SaveToFile(_xmlFile.GetOrderByName(), true);
+            _xmlFileSaver.SaveToFile(_commoditiesList.GetOrderByName(), true);
         }
 
-        private void sortByPrice_Click(object sender, RoutedEventArgs e)
+        private void SortByPrice_Click(object sender, RoutedEventArgs e)
         {
-            _xmlFileSaver.SaveToFile(_xmlFile.GetOrderByPrice(), true);
+            _xmlFileSaver.SaveToFile(_commoditiesList.GetOrderByPrice(), true);
         }
 
 
@@ -64,7 +72,7 @@ namespace CsvFileConverter
         {
             var searchText = searchTextBox.Text;
             if (searchText.Length > 0)
-                lvCommodity.ItemsSource = _xmlFile.SearchByDesc(searchText);
+                dataGrid.ItemsSource = _commoditiesList.SearchByDesc(searchText);
         }
 
 

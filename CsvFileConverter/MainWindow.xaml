@@ -5,46 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CsvFileConverter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"  
+        ResizeMode="NoResize">
     <Grid Height="434" VerticalAlignment="Bottom">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120*"/>
-            <ColumnDefinition Width="120*"/>
-            <ColumnDefinition Width="120*"/>
-            <ColumnDefinition Width="120*"/>
-            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="120px"/>
+            <ColumnDefinition Width="120px"/>
+            <ColumnDefinition Width="120px"/>
+            <ColumnDefinition Width="120px"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="37*"/>
-            <RowDefinition Height="367*"/>
+            <RowDefinition Height="20px"/>
+            <RowDefinition Height="50px"/>
+            <RowDefinition Height="50px"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Content="Wczytaj plik" x:Name="openFileBtn" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="110" Height="29" Click="openFile_Click" Margin="5,0,0,0"/>
-        <Button Content="Posortuj po nazwie" x:Name="sortByNameBtn" IsEnabled="False" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Width="110" Height="29" Click="sortByName_Click" Margin="5,0,0,0"/>
-        <Button Content="Posortuj po cenie" x:Name="sortByPriceBtn" IsEnabled="False" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Width="110" Height="29" Click="sortByPrice_Click"/>
-        <Button Content="Szukaj" x:Name="searchByDescBtn" IsEnabled="False"  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Width="110" Height="29" Click="searchByDesc_Click" Margin="5,0,0,0" />
-        <TextBox Text="" x:Name="searchTextBox" TextWrapping="Wrap" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" Width="290" Margin="5,0,0,0"/>
+        <Button Content="Wczytaj plik" x:Name="openFileBtn" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="110" Height="30" Click="OpenFile_Click" Margin="5,0,0,0"/>
+        <Button Content="Posortuj po nazwie" x:Name="sortByNameBtn" IsEnabled="False" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Width="110" Height="30" Click="SortByName_Click" Margin="5,0,0,0"/>
+        <Button Content="Posortuj po cenie" x:Name="sortByPriceBtn" IsEnabled="False" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Width="110" Height="30" Click="SortByPrice_Click"/>
+        <Button Content="Szukaj" x:Name="searchByDescBtn" IsEnabled="False"  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Width="110" Height="30" Click="searchByDesc_Click" Margin="5,0,0,0" />
+        <TextBox Text="" x:Name="searchTextBox" TextWrapping="Wrap" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" Width="300" Margin="5,0,0,0" Height="29"/>
+        <Label Content="Scieżka pliku:" x:Name="fileNameLabel" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" />
+
+        <DataGrid Width="Auto" Name = "dataGrid" AlternatingRowBackground = "LightBlue" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" AlternationCount = "2" AutoGenerateColumns = "False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header = "Nazwa" Binding = "{Binding Name}" Width="15*" />
+                <DataGridTextColumn Header = "Cena" Binding = "{Binding Price}" Width="15*" />
+                <DataGridTextColumn Header = "Opis A" Binding = "{Binding Description.A}" Width="35*"/>
+                <DataGridTextColumn Header = "Opis B" Binding = "{Binding Description.B}" Width="35*" />
+            </DataGrid.Columns>
+        </DataGrid>
         
-        <ListView Margin="10,10,10,10" Name="lvCommodity" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3">
-            <!--<ListView.ItemTemplate>
-                <DataTemplate>
-                    <WrapPanel>
-                        <TextBlock Text="Name: " />
-                        <TextBlock Text="{Binding Name}" FontWeight="Bold" />
-                        <TextBlock Text=", " />
-                        <TextBlock Text="Age: " />
-                        <TextBlock Text="{Binding Price}" FontWeight="Bold" />
-                        <TextBlock Text=" (" />
-                        <TextBlock Text="{Binding Decscription}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
-                        <TextBlock Text=")" />
-                        <TextBlock Text="{Binding Decscription.B}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
-                        <TextBlock Text=")" />
-                    </WrapPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>-->
-        </ListView>
+
 
 
 
     </Grid>
+
+
 </Window>
